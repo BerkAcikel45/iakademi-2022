@@ -1,1 +1,241 @@
 <!--Bir takım testler-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script
+      src="https://kit.fontawesome.com/972015a2fe.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #headerAbout {
+      color: #fff;
+      list-style: none;
+      display: flex;
+      justify-content: flex-end;
+      font-size: 25px;
+      margin: 0;
+    }
+
+    #headerAbout > li {
+      margin-right: 20px;
+      padding: 10px;
+    }
+
+    #headerAbout > li:hover {
+      background-color: rgb(44, 52, 141);
+      cursor: pointer;
+    }
+
+    #firstSection {
+      background-color: #333;
+      padding: 20px;
+      font-size: 30px;
+      height: 40vh;
+      text-align: center;
+      color: #fff;
+    }
+
+    #secondSection {
+      background-color: rgb(70, 70, 171);
+      text-align: center;
+      padding-top: 50px;
+      height: 93vh;
+    }
+
+    #firstRow,
+    #secondRow,
+    #thirdRow {
+      display: flex;
+      margin-bottom: 50px;
+      justify-content: center;
+    }
+
+    .elementOne,
+    .elementTwo,
+    .elementThree {
+      margin-top: 0px;
+      margin-right: 40px;
+      padding-bottom: 0;
+      height: 200px;
+      width: 300px;
+    }
+
+    h1 {
+      color: #fff;
+      margin: 0;
+    }
+
+    button {
+      background-color: #333;
+      border: 1px solid #fff;
+      font-size: 20px;
+      color: #fff;
+      border-radius: 5px;
+      padding: 10px;
+    }
+
+    .fa-facebook-square:hover,
+    .fa-twitter:hover,
+    .fa-github:hover {
+      cursor: pointer;
+      transform: translateY(10px);
+      transition: 0.5s;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <header style="background-color: rgb(220, 21, 21)">
+        <ul id="headerAbout">
+          <li>About</li>
+          <li>Work</li>
+          <li>Contact</li>
+        </ul>
+      </header>
+
+      <div id="firstSection">
+        <h2>Hey I am Alperen</h2>
+        <h4>
+          <i style="color: rgb(237, 96, 96)">a web developer in the making</i>
+        </h4>
+      </div>
+
+      <div id="secondSection">
+        <u style="color: #fff"
+          ><h1 style="margin: 0">These are some of my projects</h1></u
+        >
+
+        <div id="firstRow">
+          <div class="elementOne">
+            <img
+              style="margin-top: 20px; height: 200px; width: 300px"
+              src="https://picsum.photos/500/300"
+            />
+            <h1 style="background-color: #333">Lorem, ipsum.</h1>
+          </div>
+
+          <div class="elementTwo">
+            <img
+              style="margin-top: 20px; height: 200px; width: 300px"
+              src="https://picsum.photos/500/300"
+            />
+            <h1 style="background-color: #333">Lorem, ipsum.</h1>
+          </div>
+
+          <div class="elementThree">
+            <img
+              style="margin-top: 20px; height: 200px; width: 300px"
+              src="https://picsum.photos/500/300"
+            />
+            <h1 style="background-color: #333">Lorem, ipsum.</h1>
+          </div>
+        </div>
+
+        <div id="secondRow">
+          <div class="elementOne">
+            <img
+              style="margin-top: 20px; height: 200px; width: 300px"
+              src="https://picsum.photos/500/300"
+            />
+            <h1 style="background-color: #333">Lorem, ipsum.</h1>
+          </div>
+
+          <div class="elementTwo">
+            <img
+              style="margin-top: 20px; height: 200px; width: 300px"
+              src="https://picsum.photos/500/300"
+            />
+            <h1 style="background-color: #333">Lorem, ipsum.</h1>
+          </div>
+
+          <div class="elementThree">
+            <img
+              style="margin-top: 20px; height: 200px; width: 300px"
+              src="https://picsum.photos/500/300"
+            />
+            <h1 style="background-color: #333">Lorem, ipsum.</h1>
+          </div>
+        </div>
+
+        <div id="thirdRow">
+          <div id="firstRow">
+            <div class="elementOne">
+              <img
+                style="margin-top: 20px; height: 200px; width: 300px"
+                src="https://picsum.photos/500/300"
+              />
+              <h1 style="background-color: #333">Lorem, ipsum.</h1>
+            </div>
+
+            <div class="elementTwo">
+              <img
+                style="margin-top: 20px; height: 200px; width: 300px"
+                src="https://picsum.photos/500/300"
+              />
+              <h1 style="background-color: #333">Lorem, ipsum.</h1>
+            </div>
+
+            <div class="elementThree">
+              <img
+                style="margin-top: 20px; height: 200px; width: 300px"
+                src="https://picsum.photos/500/300"
+              />
+              <h1 style="background-color: #333">Lorem, ipsum.</h1>
+            </div>
+          </div>
+        </div>
+        <button>Show all ></button>
+      </div>
+
+      <div
+        id="thirdSection"
+        style="background-color: #333; text-align: center; color: #fff"
+      >
+        <h1 style="padding-top: 50px; font-size: 50px">Let's work together</h1>
+        <p>Lorem ipsum dolor sit amet.</p>
+
+        <div
+          class="icons"
+          style="
+            font-size: larger;
+            padding-bottom: 50px;
+            border-bottom: 2px solid red;
+          "
+        >
+          <i class="fa-brands fa-facebook-square" style="margin-right: 10px">
+            Facebook</i
+          >
+          <i class="fa-brands fa-github" style="margin-right: 10px"> GitHub</i>
+          <i class="fa-brands fa-twitter" style="margin-right: 10px">
+            Twitter</i
+          >
+        </div>
+      </div>
+
+      <footer style="background-color: #333">
+        <p
+          style="
+            margin: 0;
+            color: #fff;
+            padding-top: 15px;
+            text-align: center;
+            padding-bottom: 15px;
+          "
+        >
+          şöyle güzel site yaparım, böyle güzel site yaparım
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
