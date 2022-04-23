@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button id="button" onclick="hideshow()">Click</button>
+    <p id="result">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam dolores iusto nemo veritatis error. Dolores quos obcaecati expedita doloremque, nobis, quisquam cupiditate laudantium inventore id eius, fuga accusamus! Quod, dolorem?
+    </p>
+
+    <script>
+        function hideshow(){
+
+            var tag = document.getElementById("result");
+            
+            /*
+            if(tag.innerHTML){
+                tag.style.display = "none";
+            }
+
+            else {
+                console.log("aaaa");
+            }
+
+            */
+
+            if(tag.style.display == "none"){
+                document.getElementById("button").innerHTML = "Gizle";
+                tag.style.display = "block";
+            }
+            else{
+                document.getElementById("button").innerHTML = "Göster";
+                tag.style.display = "none";
+            }
+
+
+        }
+
+    </script>
+</body>
+</html>

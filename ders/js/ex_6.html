@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <b id="result" ></b>
+
+    <script>
+        function convert(){
+
+            var number;
+            
+            if(number >= 0 && number <= 100){
+                if(number >= 95){
+                    document.getElementById("result").innerHTML = "A+"
+                }
+                else if (number >= 90 && number < 95){
+                    document.getElementById("result").innerHTML = "A"
+                }
+                else if (number >= 85 && number < 90){
+                    document.getElementById("result").innerHTML = "B+"
+                }
+                else if (number >= 80 && number < 85){
+                    document.getElementById("result").innerHTML = "B"
+                }
+                else if (number >= 75 && number < 80){
+                    document.getElementById("result").innerHTML = "B-"
+                }
+                else if (number >= 70 && number < 75){
+                    document.getElementById("result").innerHTML = "C+"
+                }
+                else if (number >= 65 && number < 70){
+                    document.getElementById("result").innerHTML = "C"
+                }
+                else{
+                    document.getElementById("result").innerHTML = "F"
+                }
+            }
+            else{
+                document.getElementById("result").innerHTML = "Hatalı Giriş"
+            }
+        }
+
+
+
+    </script>
+
+
+</body>
+</html>
