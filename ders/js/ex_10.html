@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 
+        yorum
+    -->
+
+
+    <script>
+
+        var name = "Berk Açıkel";
+        /*
+
+        */
+        var names = ["John", "Doe", "Açıkel"];
+
+        var names = new Array("John", "Doe", "Açıkel");
+        
+        console.log(names[1]);
+
+
+        var years = new Array(1990, 1995, 2000);
+
+
+        names.push("Berk");
+        names.pop();
+
+        var student = {
+            id: 1,
+            name: "Berk",
+            surname: "Açıkel",
+            age: 24,
+        };
+
+        var student_2 ={
+            id: 1,
+            name: "Ali",
+            surname: "Açıkel",
+            age: 24,
+
+
+        }
+
+        var student_3 ={
+            id: 1,
+            name: "Cem",
+            surname: "Açıkel",
+            age: 24,
+
+
+        }
+
+        var names = [];
+        
+        names.push(student);
+        names.push(student_2);
+        names.push(student_3);
+
+        /*
+        alert("Student: name: " + student.name + " surname: " + student.surname + " age: " + student.age);
+        */
+        /*
+        alert("Student: name: " + names[1].name + " surname: " + names[1].surname + " age: " + names[1].age);
+        */
+
+        
+        var i = 0;
+
+        i = i + 1;
+
+        i++;
+
+
+        for(var i = 0; i <= 10; i++)
+        {
+            console.log(i);
+        }
+
+        var i = 0;
+        while(i <= 10){
+            console.log(i);
+            i++;
+        }
+
+
+        for(var i =0; i <= 2; i++)
+        {
+            console.log("Student: name: " + names[i].name + " surname: " + names[i].surname + " age: " + names[i].age);
+        }
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p id="text" style="display: none;">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, doloremque. Deserunt doloremque, harum dolorem labore impedit ipsum itaque quis porro distinctio suscipit ab. Odit laborum explicabo iure aliquid, est dolore.
+    </p>
+
+    <p id="warning"></p>
+
+    <script>
+
+        var name = prompt("Enter Name");
+
+        if(name == "Berk"){
+            document.getElementById("text").style.display = "block";
+            alert("Hoşgeldin");
+        }
+        else {
+            redirecting("warning", 3, "https://www.google.com/");
+        }
+
+        function redirecting(id, second, address){
+            document.getElementById(id).innerHTML = second + "saniye sonra yönlendiriliyorsunuz";
+
+            second--;
+
+            setTimeout(function()
+                {
+                    redirecting(id, second, address)
+                }, 1000);
+
+            if(second == 0){
+                window.location.href = address;
+                return;
+            }
+        }
+
+    </script>
+    
+</body>
+</html>

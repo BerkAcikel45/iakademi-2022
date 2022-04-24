@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <textarea name="textare" id="message" cols="100" rows="20"></textarea>
+    <p id="char"></p>
+
+    <script>
+        var message = document.getElementById("message");
+        var char = document.getElementById("char")
+        
+        
+        var limit = 140;
+
+        message.onkeyup = charControl;
+        message.onkeydown = charControl;
+
+        
+        function charControl(){
+            var message_lenght = this.value.length;
+
+            if(limit >= message_lenght)
+            {
+                var charNumber = limit - message_lenght;
+                char.innerHTML = charNumber + " karakter kaldı."
+            }
+            else{
+                alert("Karakter sayısı aşıldı.");
+            }
+
+
+        }
+
+    </script>
+
+</body>
+</html>

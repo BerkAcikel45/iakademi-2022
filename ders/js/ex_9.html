@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <input type="text" id="name">
+    <input type="text" id="lastname">
+    <button onclick="login()" >Login</button>
+    
+    <p id="text">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci consequatur itaque, omnis minus fuga numquam dolores quae sequi repudiandae inventore voluptatibus perferendis recusandae, eligendi temporibus corporis dicta. Dolor, temporibus doloribus.
+    </p>
+
+<script>
+    function login(){
+        var name = document.getElementById("name").value;
+        var lastname = document.getElementById("lastname").value;
+        
+        if(name == "Berk" && lastname == "Açıkel")
+        {
+            document.getElementById("text").style.color = "green";
+            document.getElementById("text").style.border = "5px solid";
+            document.getElementById("text").style.fontSize = "30px";
+        }
+        else
+        {
+            document.getElementById("text").style.color = "red";
+            document.getElementById("text").style.border = "5px solid";
+            document.getElementById("text").style.fontSize = "10px";
+            alert("Hatalı giriş");
+        }
+    
+    }
+
+</script>
+
+</body>
+</html>

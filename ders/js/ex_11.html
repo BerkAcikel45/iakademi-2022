@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="loop()">Loop 1</button>
+
+    <button onclick="loop2()" >Loop 2</button>
+
+    <button onclick="loop3()" >Loop 3</button>
+
+    <button onclick="loop4()" >Loop 4</button>
+
+    <button onclick="loop5()" >Loop 5</button>
+
+
+
+    <p id ="result"></p>
+
+<script>
+    
+
+    function loop() {
+
+        for(var i = 0; i <= 10; i++)
+        {
+            document.getElementById("result").innerHTML += i + "<br>";
+        }
+    }
+
+
+    function loop2() {
+        for(var i = 10; i > 0; i--)
+        {
+            document.getElementById("result").innerHTML += i + "<br>";
+        }
+    }
+
+    function loop3() {
+        for(var i = 0; i <= 10; i++)
+        {
+            document.getElementById("result").innerHTML += "Hello World" + "<br>";
+        }
+    }
+
+    function loop4() {
+        for(var i = 0; i <= 10; i++)
+        {
+            if( i % 2 === 0 ){
+                document.getElementById("result").innerHTML += i + "<br>";
+            }
+        }
+    }
+
+    function loop5(){
+        var name = "";
+        while(name != "q")
+        {
+            name = prompt("Enter Name");
+            var lastname = prompt("Enter Last Name");
+            var age = prompt("Enter age");
+        }
+
+        document.getElementById("result").innerHTML = name + " " + lastname + " " + age;
+
+    }
+
+
+</script>
+
+</body>
+</html>
