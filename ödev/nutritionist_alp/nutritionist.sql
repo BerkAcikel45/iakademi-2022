@@ -1,10 +1,10 @@
 CREATE TABLE users(
-	user_id integer NOT NULL nextval('users_user_ids_seq'::regclass),
 	user_name varchar(100),
 	user_last_name varchar(100),
 	user_weight integer,
 	user_height DOUBLE PRECISION,
-	user_bmi DOUBLE PRECISION
+	user_bmi DOUBLE PRECISION, -- BMI values will be calculated after a successful execution of main.py file
+	user_id serial NOT NULL
 );
 
 INSERT INTO users values('Alperen', 'Cantez', 75, 174);
@@ -12,7 +12,7 @@ INSERT INTO users values('Beatrice', 'Ena', 57, 166);
 INSERT INTO users values('Daniel', 'Preesco', 62, 171);
 INSERT INTO users values('Alperen', 'Cantez', 98, 162);
 
-CREATE TABLE nutrition(
+CREATE TABLE nutritions(
 	ntr_name varchar(50) NOT NULL,
 	ntr_kcal integer NOT NULL
 );
