@@ -1,10 +1,10 @@
 CREATE TABLE users(
-	user_id integer NOT NULL SERIAL,
+	user_id integer NOT NULL nextval('users_user_ids_seq'::regclass),
 	user_name varchar(100),
 	user_last_name varchar(100),
 	user_weight integer,
-	user_height double
-	user_bmi double
+	user_height DOUBLE PRECISION,
+	user_bmi DOUBLE PRECISION
 );
 
 INSERT INTO users values('Alperen', 'Cantez', 75, 174);
