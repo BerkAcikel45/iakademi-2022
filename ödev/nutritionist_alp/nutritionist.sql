@@ -10,7 +10,7 @@ CREATE TABLE users(
 INSERT INTO users values('Alperen', 'Cantez', 75, 174);
 INSERT INTO users values('Beatrice', 'Ena', 57, 166);
 INSERT INTO users values('Daniel', 'Preesco', 62, 171);
-INSERT INTO users values('Alperen', 'Cantez', 98, 162);
+INSERT INTO users values('Mark', 'Tyler', 98, 162);
 
 CREATE TABLE nutritions(
 	ntr_name varchar(50) NOT NULL,
