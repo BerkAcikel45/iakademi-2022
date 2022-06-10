@@ -1,0 +1,2 @@
+Sadece pgAdminden Nutritionist isimli Database oluşturmanız yeterlidir.
+Gerisi Diyet_programi_ibrahim.py dosyasında otomatik olarak hazırlanmıştır.
