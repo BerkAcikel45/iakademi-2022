@@ -13,5 +13,6 @@ class Customer(models.Model):
     email = models.EmailField(max_length=200, null=True)
     created_date = models.DateTimeField(auto_now_add=True)
     profile_picture = models.ImageField(null=True)
-
+    # e-mail vertificationı için
+    is_email_vertificated = models.BooleanField(default=False)
 
