@@ -25,14 +25,14 @@
 
             <div class="mb-3">
               <a href="">
-                <span class="badge purple mr-1">{{ product.category.name }}</span>
+                <span class="badge purple mr-1">{{ object.category.name }}</span>
               </a>
-              {% if product.is_new %}
+              {% if object.is_new %}
               <a href="">
                 <span class="badge blue mr-1">New</span>
               </a>
               {% endif %}
-              {% if product.is_bestseller %}
+              {% if object.is_bestseller %}
               <a href="">
                 <span class="badge red mr-1">Bestseller</span>
               </a>
@@ -41,25 +41,25 @@
 
             <p class="lead">
               <span class="mr-1">
-                <del>${{ product.price }}</del>
+                <del>${{ object.price }}</del>
               </span>
-              <span>${{ product.discount_price }}</span>
+              <span>${{ object.discount_price }}</span>
             </p>
 
             <p class="lead font-weight-bold">Description</p>
 
-            <p>{{ product.description }}</p>
+            <p>{{ object.description }}</p>
 
             <form class="d-flex justify-content-left">
               <!-- Default input -->
               <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
-              <a class="btn btn-primary btn-md my-0 p" href="{% url 'add_to_cart' slug=product.slug  %}" type="submit">Add to cart
+              <a class="btn btn-primary btn-md my-0 p" href="{% url 'add_to_cart' slug=object.slug  %}" type="submit">Add to cart
                 <i class="fas fa-shopping-cart ml-1"></i>
               </a>
 
 
               <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
-              <a href="{% url  'remove_to_cart' slug=product.slug %}" class="btn btn-danger btn-md my-0 p" type="submit">Remove from cart
+              <a href="{% url  'remove_to_cart' slug=object.slug %}" class="btn btn-danger btn-md my-0 p" type="submit">Remove from cart
                 <i class="fas fa-shopping-cart ml-1"></i>
               </a>
 

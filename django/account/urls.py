@@ -12,4 +12,6 @@ urlpatterns = [
 
     path('activate-user/<uid64>/<token>', activate_user, name="activateUser"),
 
+    path('activate-user/<uid64>/<token>', activate_user, name="activateUser"),
+
 ]
