@@ -1,3 +1,4 @@
+import ipdb
 from django.shortcuts import render, get_object_or_404, redirect
 
 from order.models import Order, OrderItem
@@ -12,6 +13,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from order.decorators import allowed_user
 
 from order.forms import CheckoutForm
+from django.core.exceptions import ObjectDoesNotExist
+
+from order.models import Payment
 
 
 @allowed_user
@@ -19,10 +23,9 @@ def add_to_cart(request, slug):
     customer = Customer.objects.get(user=request.user)
     product = get_object_or_404(ProductModel, slug=slug)
     # order_item = OrderItem.objects.create(item=product)
-    order = Order.objects.filter(customer=customer, ordered=False)
 
-    if order.exists():
-        order = order[0]
+    try:
+        order = Order.objects.get(customer=customer, ordered=False)
         if order.items.filter(item__slug=product.slug).exists():
             order_item = order.items.get(item__slug=product.slug)
             order_item.quantity += 1
@@ -30,12 +33,31 @@ def add_to_cart(request, slug):
         else:
             order_item = OrderItem.objects.create(item=product)
             order.items.add(order_item)
-    else:
+
+    except ObjectDoesNotExist:
         order = Order.objects.create(
-            customer=customer,
-        )
+                customer=customer,
+            )
         order_item = OrderItem.objects.create(item=product)
         order.items.add(order_item)
+
+    #order = Order.objects.filter(customer=customer, ordered=False)
+
+    # if order.exists():
+    #     order = order[0]
+    #     if order.items.filter(item__slug=product.slug).exists():
+    #         order_item = order.items.get(item__slug=product.slug)
+    #         order_item.quantity += 1
+    #         order_item.save()
+    #     else:
+    #         order_item = OrderItem.objects.create(item=product)
+    #         order.items.add(order_item)
+    # else:
+    #     order = Order.objects.create(
+    #         customer=customer,
+    #     )
+    #     order_item = OrderItem.objects.create(item=product)
+    #     order.items.add(order_item)
 
     return redirect("ProductDetail", slug=slug)
 
@@ -95,3 +117,46 @@ class CheckoutView(View):
 
     def post(self, *args, **kwargs):
         pass
+
+
+class PaymentView(View):
+    def get(self, *args, **kwargs):
+        return render(self.request, 'payment.html')
+
+    def post(self, *args, **kwargs):
+        import stripe
+        stripe.api_key = "sk_test_4eC39HqLyjWDarjtT1zdp7dc"
+
+        customer = Customer.objects.get(user=self.request.user)
+        order = Order.objects.get(customer=customer)
+
+        amount = order.get_total_price()
+        token = self.request.POST.get('stripeToken')
+
+        try:
+            charge = stripe.Charge.create(
+                amount=int(amount),
+                currency="usd",
+                source=token,
+            )
+        except stripe.error.CardError as e:
+            messages.error(self.request, "A payment error occurred: {}".format(e.user_message))
+        except stripe.error.InvalidRequestError:
+            messages.error(self.request, "An invalid request occurred.")
+        except Exception:
+            messages.error(self.request, "Another problem occurred, maybe unrelated to Stripe.")
+        else:
+            payment = Payment()
+            payment.stripe_charge_id = charge['id']
+            payment.amount = amount
+            payment.customer = customer
+            payment.save()
+
+            order.ordered = True
+            order.payment = payment
+            order.save()
+
+            messages.success(self.request, "Your order was succesfull!")
+            return redirect("/products")
+
+        return redirect("/products")

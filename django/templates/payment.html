@@ -116,25 +116,15 @@ button:hover {
                 <div class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" name="use_default_card" id="use_default_card">
                   <label class="custom-control-label" for="use_default_card">Use default card:
-                    **** **** **** {{ card.last4 }} 
+                    **** **** **** {{ card.last4 }}
                   <span>Exp: {{ card.exp_month }}/{{ card.exp_year }}</span></label>
                 </div>
               </div>
             {% endif %}
 
-            <div class="current-card-form">
-              <form action="." method="post" class="stripe-form">
-                  {% csrf_token %}
-                  <input type="hidden" name="use_default" value="true">
-                  <div class="stripe-form-row">
-                    <button id="stripeBtn">Submit Payment</button>
-                  </div>
-                  <div id="card-errors" role="alert"></div>
-              </form>
-            </div>
 
             <div class="new-card-form">
-              <form action="." method="post" class="stripe-form" id="stripe-form">
+              <form action="{{.}}" method="post" class="stripe-form" id="stripe-form">
                   {% csrf_token %}
                   <div class="stripe-form-row" id="creditCard">
                       <label for="card-element" id="stripeBtnLabel">
@@ -167,10 +157,10 @@ button:hover {
 
   <script nonce="">  // Create a Stripe client.
     var stripe = Stripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
-  
+
     // Create an instance of Elements.
     var elements = stripe.elements();
-  
+
     // Custom styling can be passed to options when creating an Element.
     // (Note that this demo uses a wider set of styles than the guide below.)
     var style = {
@@ -188,13 +178,13 @@ button:hover {
         iconColor: '#fa755a'
       }
     };
-  
+
     // Create an instance of the card Element.
     var card = elements.create('card', {style: style});
-  
+
     // Add an instance of the card Element into the `card-element` <div>.
     card.mount('#card-element');
-  
+
     // Handle real-time validation errors from the card Element.
     card.addEventListener('change', function(event) {
       var displayError = document.getElementById('card-errors');
@@ -204,12 +194,12 @@ button:hover {
         displayError.textContent = '';
       }
     });
-  
+
     // Handle form submission.
     var form = document.getElementById('stripe-form');
     form.addEventListener('submit', function(event) {
       event.preventDefault();
-  
+
       stripe.createToken(card).then(function(result) {
         if (result.error) {
           // Inform the user if there was an error.
@@ -221,7 +211,7 @@ button:hover {
         }
       });
     });
-  
+
     // Submit the form with the token ID.
     function stripeTokenHandler(token) {
       // Insert the token ID into the form so it gets submitted to the server
@@ -231,11 +221,11 @@ button:hover {
       hiddenInput.setAttribute('name', 'stripeToken');
       hiddenInput.setAttribute('value', token.id);
       form.appendChild(hiddenInput);
-  
+
       // Submit the form
       form.submit();
     }
-  
+
     var currentCardForm = $('.current-card-form');
     var newCardForm = $('.new-card-form');
     var use_default_card = document.querySelector("input[name=use_default_card]");
@@ -248,7 +238,7 @@ button:hover {
         currentCardForm.hide()
       }
     })
-  
+
   </script>
-  
+
 {% endblock content %}

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from order.models import Order, OrderItem
+from order.models import Order, OrderItem, Payment
 
 
 class OrderAdmin(admin.ModelAdmin):
@@ -10,6 +10,9 @@ class OrderAdmin(admin.ModelAdmin):
 class OrderItemAdmin(admin.ModelAdmin):
     pass
 
+class PaymentAdmin(admin.ModelAdmin):
+    pass
 
 admin.site.register(Order, OrderAdmin)
 admin.site.register(OrderItem, OrderItemAdmin)
+admin.site.register(Payment, PaymentAdmin)
